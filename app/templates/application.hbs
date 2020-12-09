@@ -1,5 +1,10 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<NativeSelectBox
+  @value={{this.changeset}}
+  @onSelect={{this.handleSelectFoo}} as |sb|
+>
+  {{#each this.foos as |foo|}}
+    <sb.Option @value={{foo}}>
+      {{foo.name}}
+    </sb.Option>
+  {{/each}}
+</NativeSelectBox>
