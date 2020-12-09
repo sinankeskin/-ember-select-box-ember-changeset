@@ -6,4 +6,9 @@ export default class ApplicationController extends Controller {
   handleSelectFoo(foo) {
     console.log(`Selected ${foo.name}`);
   }
+
+  @action
+  handleSelectBar(bar) {
+    console.log(`Selected ${bar.name}`);
+  }
 }

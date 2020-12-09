@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject } from '@ember/service';
 import Changeset from 'ember-changeset';
+import { bar2, bars } from '../utils/bars';
 
 export default class ApplicationRoute extends Route {
   @inject store;
@@ -12,10 +13,11 @@ export default class ApplicationRoute extends Route {
   setupController(controller, model) {
     controller.foos = model;
     controller.foo2 = this.store.peekRecord('foo', 2);
+    controller.foo2Changeset = new Changeset(controller.foo2, this.validateFoo);
 
-    controller.changeset = new Changeset(controller.foo2, this.validateFoo);
-
-    console.log(controller.changeset);
+    controller.bars = bars;
+    controller.bar2 = bar2;
+    controller.bar2Proxy = new Proxy(bar2, {});
   }
 
   validateFoo() {

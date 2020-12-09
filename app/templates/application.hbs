@@ -1,10 +1,23 @@
 <NativeSelectBox
-  @value={{this.changeset}}
+  @value={{this.foo2Changeset}}
   @onSelect={{this.handleSelectFoo}} as |sb|
 >
   {{#each this.foos as |foo|}}
     <sb.Option @value={{foo}}>
       {{foo.name}}
+    </sb.Option>
+  {{/each}}
+</NativeSelectBox>
+
+<br><br>
+
+<NativeSelectBox
+  @value={{this.bar2Proxy}}
+  @onSelect={{this.handleSelectBar}} as |sb|
+>
+  {{#each this.bars as |bar|}}
+    <sb.Option @value={{bar}}>
+      {{bar.name}}
     </sb.Option>
   {{/each}}
 </NativeSelectBox>
