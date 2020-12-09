@@ -14,10 +14,12 @@ export default class ApplicationRoute extends Route {
     controller.foos = model;
     controller.foo2 = this.store.peekRecord('foo', 2);
     controller.foo2Changeset = new Changeset(controller.foo2, this.validateFoo);
+    console.log(controller.foo2Changeset);
 
     controller.bars = bars;
     controller.bar2 = bar2;
     controller.bar2Proxy = new Proxy(bar2, {});
+    console.log(controller.bar2Proxy);
   }
 
   validateFoo() {
