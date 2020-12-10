@@ -1,22 +1,13 @@
 import RESTAdapter from '@ember-data/adapter/rest';
 
 export default class FooAdapter extends RESTAdapter {
-  findAll() {
+  findRecord(store, type, id) {
     return {
-      foos: [
-        {
-          id: 1,
-          name: 'Foo 1'
-        },
-        {
-          id: 2,
-          name: 'Foo 2'
-        },
-        {
-          id: 3,
-          name: 'Foo 3'
-        }
-      ]
+      foo: {
+        id,
+        name: `Foo ${id}`,
+        bar: id,
+      },
     };
   }
 }
